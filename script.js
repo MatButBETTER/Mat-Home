@@ -5,3 +5,7 @@ function calculator() {
 function virus() {
     window.open("StartPage.html")
 }
+
+function passwordGame() {
+    window.open("PasswordGame")
+}
