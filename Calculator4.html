@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+ <title>Calculator</title>
+
+<style>
+  body {
+    font-family: "DM Sans", sans-serif;
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical center */
+    height: 100vh;             /* full screen height */
+    margin: 0;
+  }
+
+  .calculator {
+    border: 2px solid black;
+    padding: 20px;
+    width: 220px;
+  }
+</style>
+<style>
+  h1 {
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>Calculator</h1>
+
+<div class="calculator">
+  <input type="text" id="va" placeholder="Value A">
+  <input type="text" id="op" placeholder="Operator (+ - × ÷)">
+  <input type="text" id="vb" placeholder="Value B">
+
+  <button type="button"
+  onclick="
+    let a = Number(document.getElementById('va').value);
+    let o = document.getElementById('op').value;
+    let b = Number(document.getElementById('vb').value);
+
+    let result;
+
+    if (o === '+') result = a + b;
+    else if (o === '-') result = a - b;
+    else if (o === '×') result = a * b;
+    else if (o === '÷') result = a / b;
+    else result = 'Invalid operator';
+
+    document.getElementById('output').textContent = result;
+  ">
+    Submit
+  </button>
+
+  <p id="output"></p>
+</div>
+
+</body>
+</html>
