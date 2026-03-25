@@ -17,3 +17,8 @@ function DansSiteRedirect() {
 function searchRedirect() {
     window.open("Search.html")
 }
+
+function search() {
+    let value = document.getElementById('input')
+    window.open(value)
+}
