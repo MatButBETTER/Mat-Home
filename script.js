@@ -22,3 +22,8 @@ function search() {
     let value = document.getElementById('input').value
     window.open("https://matbutbetter.github.io/Mat-Home/" + value)
 }
+
+function search2() {
+    let value = document.getElementById('input2').value
+    window.open("https://" + value)
+}
