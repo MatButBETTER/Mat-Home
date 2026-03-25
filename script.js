@@ -20,5 +20,5 @@ function searchRedirect() {
 
 function search() {
     let value = document.getElementById('input')
-    window.open(value)
+    window.open("https://matbutbetter.github.io/Mat-Home/" + value)
 }
