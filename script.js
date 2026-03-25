@@ -13,3 +13,7 @@ function passwordGame() {
 function DansSiteRedirect() {
     window.open("Dan's_project_or_sum")
 }
+
+function searchRedirect() {
+    window.open("Search.html")
+}
