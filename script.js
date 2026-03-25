@@ -19,6 +19,6 @@ function searchRedirect() {
 }
 
 function search() {
-    let value = document.getElementById('input')
+    let value = document.getElementById('input').value
     window.open("https://matbutbetter.github.io/Mat-Home/" + value)
 }
