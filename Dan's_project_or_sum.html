@@ -10,32 +10,54 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      color: #333;
     }
     .music-controls {
       margin: 20px 0;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     button {
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
       margin: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
   <h1>Hello</h1>
   
-  <!-- Audio element for background music -->
+  <!-- Audio element for background music with multiple formats -->
   <audio id="bgMusic" loop>
-    <source src="coolauramoozig" type="audio/mpeg">
+    <source src="coolauramoozig.mp3" type="audio/mpeg">
+    <source src="coolauramoozig.ogg" type="audio/ogg">
+    <source src="coolauramoozig.wav" type="audio/wav">
     Your browser does not support the audio element.
   </audio>
   
   <!-- Music controls -->
   <div class="music-controls">
-    <button onclick="playMusic()">Play Music</button>
-    <button onclick="pauseMusic()">Pause Music</button>
-    <button onclick="changeVolume()">Mute/Unmute</button>
+    <h2>🎵 Music Player</h2>
+    <button onclick="playMusic()">▶️ Play Music</button>
+    <button onclick="pauseMusic()">⏸️ Pause Music</button>
+    <button onclick="changeVolume()">🔊 Mute/Unmute</button>
+    <button onclick="setVolume(30)">🔇 Low Volume</button>
+    <button onclick="setVolume(70)">🔉 High Volume</button>
   </div>
   
   <script>
@@ -57,8 +79,13 @@
         console.log("Muted");
       } else {
         audio.volume = 0.5;
-        console.log("Unmuted");
+        console.log("Unmuted - Volume set to 50%");
       }
+    }
+    
+    function setVolume(percentage) {
+      audio.volume = percentage / 100;
+      console.log("Volume set to " + percentage + "%");
     }
     
     // Auto-play music when page loads (optional)
