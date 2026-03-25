@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Dan's Site</title>
+
   <script>
     console.log("Hello")
   </script>
+
+  <!-- Background music -->
+  <audio id="bg-music" loop>
+    <source src="4bc4b3e0-0ecd-493f-ac6e-8b1f9b4ed920.ogg" type="audio/ogg">
+  </audio>
+
+  <script>
+    const music = document.getElementById("bg-music");
+
+    document.addEventListener("click", () => {
+      music.play();
+    }, { once: true });
+  </script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,15 +28,13 @@
       padding: 20px;
     }
   </style>
+
 </head>
+
 <body>
-  <h1>Hello</h1>
-  
-  <!-- Background music - plays automatically -->
-  <audio autoplay loop>
-    <source src="file:///C:/Users/danie/Downloads/coolauramoozig.wav" type="audio/wav">
-    Your browser does not support the audio element.
-  </audio>
-  
+
+  <h1>Welcome to Dan's Site</h1>
+
 </body>
+
 </html>
