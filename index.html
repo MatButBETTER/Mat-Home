@@ -10,6 +10,30 @@
       background-color: black;
       color: green;
     }
+    .main-button {
+      font-family: 'Press Start 2P', monospace; /* same font as the body */
+      background-color: black;
+      color: green;
+      border: 2px solid green;
+      padding: 8px 12px;
+      cursor: pointer;
+      margin: 5px 0; /* space between buttons */
+      text-transform: uppercase; /* optional, looks hacker-ish */
+    }
+
+    .main-button:hover {
+      background-color: green;
+      color: black;
+    }
+    input {
+      font-family: 'Press Start 2P', monospace;
+      background-color: black;
+      color: green;
+      border: 2px solid green;
+      padding: 5px 10px;
+      width: 200px;
+      margin: 5px 0;
+    }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,28 +44,28 @@
   
   <h3>All of the pages WE ARE working on are here - as long as WE remember to add them...</h3>
   
-  <button type="button" id='calcRedirect' style="background-color: black; color: green;"
+  <button type="button" id='calcRedirect' class="main-button"
     onClick="calculator()">Calculator</button>
   
-  <button type="button" id='virusRedirect' style="background-color: black; color: green;"
+  <button type="button" id='virusRedirect' class="main-button"
     onClick="virus()">Web Virus Thingy</button>
   
-  <button type="button" id='passGameRedirect' style="background-color: black; color: green;"
+  <button type="button" id='passGameRedirect' class="main-button"
     onClick="passwordGame()">Password Game</button>
   
-  <button type="button" id='DanSiteRedirect' style="background-color: black; color: green;"
+  <button type="button" id='DanSiteRedirect' class="main-button"
     onClick="DansSiteRedirect()">Redirect to Dan's site</button>
   
   <h4>Search other site (in repository)</h4>
   
   <input id='input' style="background-color: black; color: green;">
 
-  <button type="button" style="background-color: black; color: green;"
+  <button type="button" class="main-button"
     onClick="search()">Submit</button>
 
   <h4>Search other site (anywhere)</h4>
   
-  <input id='input2' style="background-color: black; color: green;">
+  <input id='input2' class="main-button"
 
   <button type="button" style="background-color: black; color: green;"
     onClick="search2()">Submit</button>
