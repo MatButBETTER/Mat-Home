@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+    <script>
+      let value;
+      function open() {
+        value = document.getElementById('input')
+        window.open(value target="_self")
+      }
+    </script>
   </head>
   <body>
     <input id='input' placeholder="Type something">
-    <a href="document.getElementById('input')" target="_self">Search!</a>
+    
+    <button type="button" id='button'
+      onClick="open()">Search!</button>
+    
   </body>
 </html>
