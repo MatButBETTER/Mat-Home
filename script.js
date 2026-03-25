@@ -9,3 +9,7 @@ function virus() {
 function passwordGame() {
     window.open("PasswordGame")
 }
+
+function dansSiteRedirect() {
+    window.open("Dan's_project_or_sum")
+}
