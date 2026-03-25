@@ -1,12 +1,69 @@
 <!DOCTYPE html>
-  <html>
-  <head>
-    <title>Dan's Site</title>
-    <script>
-      console.log("Hello")
-    </script>
-  </head>
-  <body>
-    <h1>Hello</h1>
-  </body>
+<html>
+<head>
+  <title>Dan's Site</title>
+  <script>
+    console.log("Hello")
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .music-controls {
+      margin: 20px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello</h1>
+  
+  <!-- Audio element for background music -->
+  <audio id="bgMusic" loop>
+    <source src="coolauramoozig.mp4" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <!-- Music controls -->
+  <div class="music-controls">
+    <button onclick="playMusic()">Play Music</button>
+    <button onclick="pauseMusic()">Pause Music</button>
+    <button onclick="changeVolume()">Mute/Unmute</button>
+  </div>
+  
+  <script>
+    const audio = document.getElementById('bgMusic');
+    
+    function playMusic() {
+      audio.play();
+      console.log("Music playing");
+    }
+    
+    function pauseMusic() {
+      audio.pause();
+      console.log("Music paused");
+    }
+    
+    function changeVolume() {
+      if (audio.volume > 0) {
+        audio.volume = 0;
+        console.log("Muted");
+      } else {
+        audio.volume = 0.5;
+        console.log("Unmuted");
+      }
+    }
+    
+    // Auto-play music when page loads (optional)
+    // Uncomment the line below to auto-play
+    // window.addEventListener('load', playMusic);
+  </script>
+</body>
 </html>
