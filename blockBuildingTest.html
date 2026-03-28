@@ -17,7 +17,7 @@
         background: lightgrey;
 
         display: flex;
-        flex-direction: column; /* 🔥 makes it a vertical bar */
+        flex-direction: column;
         padding: 10px;
         gap: 10px;
       }
@@ -27,6 +27,7 @@
         flex-direction: column;
         background: lightblue;
         flex: 1;
+        overflow-y: auto;
       }
     </style>
     <script>
@@ -40,6 +41,12 @@
         let paragraph = document.createElement("p");
         paragraph.textContent = document.getElementById('paragraphTextInput').value;
         document.getElementById('page').appendChild(paragraph);
+      }
+
+      function newButton() {
+        let button = document.createElement("button");
+        button.textContent = document.getElementById('buttonTextInput').value;
+        document.getElementById('page').appendChild(button);
       }
     </script>
   </head>
@@ -64,6 +71,11 @@
             onClick="newParagraph()">Add Paragraph</button>
           <input id="paragraphTextInput" placeholder="Paragraph">
         </div>
+
+        <div id="addButtonButton"></div>
+        <button id="addButton"
+          onClick="newButton()">Add Button</button>
+        <input id="buttonTextInput" placeholder="Button">
       </div>
         <div id="hierarchy"></div>
     </div>
