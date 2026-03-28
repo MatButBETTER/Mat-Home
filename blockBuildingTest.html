@@ -21,6 +21,12 @@
         heading.textContent = document.getElementById('headingTextInput').value;
         document.getElementById('page').appendChild(heading);
       }
+      
+      function newParagraph() {
+        let paragraph = document.createElement("p");
+        paragraph.textContent = document.getElementById('paragraphTextInput').value;
+        document.getElementById('page').appendChild(paragraph);
+      }
     </script>
   </head>
   <body>
@@ -33,11 +39,17 @@
       </div>
       
       <div id="right">
-        <div id="addButtons">
+        <div id="addHeadingButton">
           <button id="addHeading"
             onClick="newHeading()">Add Heading</button>
           <input id="headingTextInput" placeholder="Heading">
         </div>
+        <div id="addParagraphButton">
+          <button id="addParagraph"
+            onClick="newParagraph">Add Paragraph</button>
+          <input id="paragraphTextInput" placeholder="Paragraph">
+        </div>
+        
       </div>
       
     </div>
