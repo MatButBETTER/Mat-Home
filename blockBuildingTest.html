@@ -18,7 +18,7 @@
     <script>
       function newHeading() {
         let heading = document.createElement("h1");
-        heading.textContent = document.getElementById('headingTextInput');
+        heading.textContent = document.getElementById('headingTextInput').value;
         document.getElementById('page').appendChild(heading);
       }
     </script>
