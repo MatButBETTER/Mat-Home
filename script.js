@@ -27,3 +27,7 @@ function search2() {
     let value = document.getElementById('input2').value
     window.open("https://" + value)
 }
+
+function blockTestRedirect() {
+    window.open("blockBuildingTest.html")
+}
