@@ -16,8 +16,10 @@
       }
     </style>
     <script>
-      function newParagraph() {
-        
+      function newHeading() {
+        let heading = document.createElement("h1");
+        heading.textContent = document.getElementById('headingTextInput');
+        document.getElementById('page').appendChild(heading);
       }
     </script>
   </head>
