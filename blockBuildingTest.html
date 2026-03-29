@@ -36,8 +36,10 @@
       function createElement() {
         type = document.getElementById('type-').value;
         text = document.getElementById('text').value;
+        
         let el = document.createElement(type);
         el.textContent = text;
+        
         document.getElementById('page').appendChild(el);
       }
     </script>
