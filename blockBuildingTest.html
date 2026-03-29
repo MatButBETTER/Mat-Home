@@ -76,9 +76,13 @@
       }
 
       function newScript() {
-        let text = document.getElementBiId("scriptText").value;
-        createElement("script", text, "structure")
-        
+        let text = document.getElementById("scriptText").value;
+        let script = document.createElement("script");
+        script.innerHTML = text;
+
+        document.body.appendChild(script);
+        document.getElementById("structure").appendChild(script);
+      }
     </script>
   </head>
 
