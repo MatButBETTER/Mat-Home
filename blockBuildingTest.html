@@ -37,14 +37,14 @@
 
         document.getElementById("page").appendChild(el);
 
-        // 🔥 hierarchy item
+        
         let item = document.createElement("div");
         item.textContent = type + ": " + text;
         item.style.cursor = "pointer";
 
         document.getElementById("hierarchy").appendChild(item);
 
-        // 🔥 edit / delete
+        
         item.onclick = () => {
           let input = prompt("Edit or delete (leave blank):", el.textContent);
 
@@ -98,6 +98,12 @@
         <div>
           <input id="buttonText" placeholder="Button text">
           <button onclick="newButton()">Add Button</button>
+        </div>
+
+        <div>
+          <textarea id="scriptText" placeholder="Code..." cols="20">
+          <button type="button"
+            onClick="newScript()">Add script</button>
         </div>
       </div>
 
