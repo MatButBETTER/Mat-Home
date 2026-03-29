@@ -31,10 +31,10 @@
     </style>
 
     <script>
-      function createElement(type, text, position) {
+      function createElement(type, text, position, id) {
         let el = document.createElement(type);
         el.textContent = text;
-
+        el.id = id;
         document.getElementById(position).appendChild(el);
 
         
@@ -62,17 +62,20 @@
 
       function newHeading() {
         let text = document.getElementById("headingText").value;
-        createElement("h1", text, "page");
+        let id = document.getElementById("headingId").value;
+        createElement("h1", text, "page", id);
       }
 
       function newParagraph() {
         let text = document.getElementById("paragraphText").value;
-        createElement("p", text, "page");
+        let id = document.getElementById("paragraphId").value;
+        createElement("p", text, "page", id);
       }
 
       function newButton() {
         let text = document.getElementById("buttonText").value;
-        createElement("button", text, "page");
+        let id = document.getElementById("buttonId").value;
+        createElement("button", text, "page", id);
       }
 
       function newScript() {
