@@ -32,7 +32,7 @@
     </style>
     <script>
       function createElement() {
-        let type = document.getElementById('type').value;
+        let type- = document.getElementById('type-').value;
         let text = document.getElementById('text').value;
         let el = document.createElement(type);
         el.textContent = text;
@@ -50,7 +50,7 @@
       </div>
       
       <div id="right">
-        <input id="type" placeholder="Type (eg: button, p, h1)">
+        <input id="type-" placeholder="Type (eg: button, p, h1)">
         <input id="text" placeholder="Text">
         <button type="button" id="elementMaker"
           onClick="createElement()">Add Element</button>
