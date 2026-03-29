@@ -31,11 +31,11 @@
     </style>
 
     <script>
-      function createElement(type, text) {
+      function createElement(type, text, position) {
         let el = document.createElement(type);
         el.textContent = text;
 
-        document.getElementById("page").appendChild(el);
+        document.getElementById(position).appendChild(el);
 
         
         let item = document.createElement("div");
@@ -62,18 +62,23 @@
 
       function newHeading() {
         let text = document.getElementById("headingText").value;
-        createElement("h1", text);
+        createElement("h1", text, "page");
       }
 
       function newParagraph() {
         let text = document.getElementById("paragraphText").value;
-        createElement("p", text);
+        createElement("p", text, "page");
       }
 
       function newButton() {
         let text = document.getElementById("buttonText").value;
-        createElement("button", text);
+        createElement("button", text, "page");
       }
+
+      function newScript() {
+        let text = document.getElementBiId("scriptText").value;
+        createElement("script", text, "structure")
+        
     </script>
   </head>
 
@@ -81,6 +86,7 @@
     <div id="container">
 
       <div id="left">
+        <div id="structure"></div>
         <div id="page"></div>
       </div>
 
