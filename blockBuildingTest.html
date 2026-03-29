@@ -31,15 +31,18 @@
       }
     </style>
     <script>
-      let type;
-      let text;
       function createElement() {
-        type = document.getElementById('type-').value;
-        text = document.getElementById('text').value;
-        
+        let type = document.getElementById('type-').value.trim();
+        let text = document.getElementById('text').value;
+
+        if (!type) {
+          alert("enter a valid element type bro 💀");
+          return;
+        }
+
         let el = document.createElement(type);
         el.textContent = text;
-        
+
         document.getElementById('page').appendChild(el);
       }
     </script>
