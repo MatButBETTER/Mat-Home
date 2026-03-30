@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+w<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -78,13 +78,13 @@
         createElement("button", text, "page", id);
       }
 
-      function newScript() {
-        let text = document.getElementById("scriptText").value;
-        let script = document.createElement("script");
-        script.innerHTML = text;
+      function editScript() {
+        let code = document.getElementById("scriptText").value;
+        let fn = new Function(code);
+      }
 
-        document.body.appendChild(script);
-        document.getElementById("structure").appendChild(script);
+      while (true) {
+        fn()
       }
     </script>
   </head>
@@ -119,7 +119,7 @@
         <div>
           <textarea id="scriptText" placeholder="Code..." cols="36"></textarea>
           <button type="button"
-            onClick="newScript()">Add script</button>
+            onClick="editScript()">Update Script</button>
         </div>
       </div>
 
