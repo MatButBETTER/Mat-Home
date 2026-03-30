@@ -32,6 +32,7 @@ w<!DOCTYPE html>
 
     <script>
       let code = null;
+      let fn = null;
       function createElement(type, text, position, id) {
         let el = document.createElement(type);
         el.textContent = text;
@@ -81,14 +82,22 @@ w<!DOCTYPE html>
 
       function editScript() {
         let code = document.getElementById("scriptText").value;
-        let fn = new Function(code);
-      }
-
-      while (true) {
-        if (!code = null) {
-          fn()
+        try {
+          fn = new Function(code)
+        } catch (error) {
+          console.log("script error user")
+          alert("Script error")
         }
       }
+      setInterval(() => {
+        if (fn) {
+          try {
+            fn();
+          } catch (err) {
+            console.error("Runtime error:", err);
+          }
+        }
+      }, 1000); // runs every 1 second
     </script>
   </head>
 
