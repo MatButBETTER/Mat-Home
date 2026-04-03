@@ -1,4 +1,4 @@
-w<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <style>
@@ -15,7 +15,6 @@ w<!DOCTYPE html>
       #right {
         width: 20%;
         background: lightgrey;
-
         display: flex;
         flex-direction: column;
         padding: 10px;
@@ -31,17 +30,29 @@ w<!DOCTYPE html>
     </style>
 
     <script>
-      let code = null;
       let fn = null;
+
       function createElement(type, text, position, id) {
+        
+        if (!id) {
+          alert("give it an id bro");
+          return;
+        }
+
+        if (document.getElementById(id)) {
+          alert("id already exists 💀");
+          return;
+        }
+
         let el = document.createElement(type);
         el.textContent = text;
         el.id = id;
+
         document.getElementById(position).appendChild(el);
 
         
         let item = document.createElement("div");
-        item.textContent = type + ": " + text;
+        item.textContent = type + ": " + text + " (id: " + id + ")";
         item.style.cursor = "pointer";
 
         document.getElementById("hierarchy").appendChild(item);
@@ -57,9 +68,11 @@ w<!DOCTYPE html>
             item.remove();
           } else {
             el.textContent = input;
-            item.textContent = type + ": " + text + " (id: " + id + ")";
+            item.textContent = type + ": " + input + " (id: " + id + ")";
           }
         };
+
+        return el;
       }
 
       function newHeading() {
@@ -77,18 +90,26 @@ w<!DOCTYPE html>
       function newButton() {
         let text = document.getElementById("buttonText").value;
         let id = document.getElementById("buttonId").value;
-        createElement("button", text, "page", id);
+
+        let btn = createElement("button", text, "page", id);
+
+        if (btn) {
+          btn.addEventListener("click", () => {
+            console.log("Clicked:", id);
+          });
+        }
       }
 
       function editScript() {
         let code = document.getElementById("scriptText").value;
+
         try {
-          fn = new Function(code)
+          fn = new Function(code);
         } catch (error) {
-          console.log("script error user")
-          alert("Script error")
+          console.error("Script error:", error);
+          alert("Script error");
         }
-      }
+      
       setInterval(() => {
         if (fn) {
           try {
@@ -97,7 +118,7 @@ w<!DOCTYPE html>
             console.error("Runtime error:", err);
           }
         }
-      }, 1000); // runs every 1 second
+      }, 1000);
     </script>
   </head>
 
@@ -130,8 +151,7 @@ w<!DOCTYPE html>
 
         <div>
           <textarea id="scriptText" placeholder="Code..." cols="36"></textarea>
-          <button type="button"
-            onClick="editScript()">Update Script</button>
+          <button onclick="editScript()">Update Script</button>
         </div>
       </div>
 
