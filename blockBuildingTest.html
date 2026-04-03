@@ -28,12 +28,49 @@
         padding: 10px;
       }
     </style>
+  </head>
+
+  <body>
+    <div id="container">
+
+      <div id="left">
+        <div id="structure"></div>
+        <div id="page"></div>
+      </div>
+
+      <div id="right">
+        <div>
+          <input id="headingId" placeholder="Unique ID">
+          <input id="headingText" placeholder="Heading text">
+          <button onclick="newHeading()">Add Heading</button>
+        </div>
+
+        <div>
+          <input id="paragraphId" placeholder="Unique ID">
+          <input id="paragraphText" placeholder="Paragraph text">
+          <button onclick="newParagraph()">Add Paragraph</button>
+        </div>
+
+        <div>
+          <input id="buttonId" placeholder="Unique ID">
+          <input id="buttonText" placeholder="Button text">
+          <button onclick="newButton()">Add Button</button>
+        </div>
+
+        <div>
+          <textarea id="scriptText" placeholder="Code..." cols="36"></textarea>
+          <button onclick="editScript()">Update Script</button>
+        </div>
+      </div>
+
+      <div id="hierarchy"></div>
+
+    </div>
 
     <script>
       let fn = null;
 
       function createElement(type, text, position, id) {
-        
         if (!id) {
           alert("give it an id bro");
           return;
@@ -50,14 +87,12 @@
 
         document.getElementById(position).appendChild(el);
 
-        
         let item = document.createElement("div");
         item.textContent = type + ": " + text + " (id: " + id + ")";
         item.style.cursor = "pointer";
 
         document.getElementById("hierarchy").appendChild(item);
 
-        
         item.onclick = () => {
           let input = prompt("Edit or delete (leave blank):", el.textContent);
 
@@ -109,7 +144,9 @@
           console.error("Script error:", error);
           alert("Script error");
         }
-      
+      }
+
+      // safe background execution
       setInterval(() => {
         if (fn) {
           try {
@@ -120,43 +157,6 @@
         }
       }, 1000);
     </script>
-  </head>
 
-  <body>
-    <div id="container">
-
-      <div id="left">
-        <div id="structure"></div>
-        <div id="page"></div>
-      </div>
-
-      <div id="right">
-        <div>
-          <input id="headingId" placeholder="Unique ID">
-          <input id="headingText" placeholder="Heading text">
-          <button onclick="newHeading()">Add Heading</button>
-        </div>
-
-        <div>
-          <input id="paragraphId" placeholder="Unique ID">
-          <input id="paragraphText" placeholder="Paragraph text">
-          <button onclick="newParagraph()">Add Paragraph</button>
-        </div>
-
-        <div>
-          <input id="buttonId" placeholder="Unique ID">
-          <input id="buttonText" placeholder="Button text">
-          <button onclick="newButton()">Add Button</button>
-        </div>
-
-        <div>
-          <textarea id="scriptText" placeholder="Code..." cols="36"></textarea>
-          <button onclick="editScript()">Update Script</button>
-        </div>
-      </div>
-
-      <div id="hierarchy"></div>
-
-    </div>
   </body>
 </html>
