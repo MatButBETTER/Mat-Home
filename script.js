@@ -18,6 +18,10 @@ function ClickerDownloadRedirect() {
     window.open("ClickerDownload.html")
 }
 
+function internetClickerRedirect() {
+    window.open("InternetClicker.html")
+}
+
 function searchRedirect() {
     window.open("Search.html")
 }
