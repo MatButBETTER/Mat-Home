@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Idle Clicker</title>
+</head>
+<body>
+
+<h1 id="clickLabel">Clicks: 0</h1>
+
+<button onclick="clicked()">Click Me!</button>
+<br><br>
+
+<button onclick="upgradeMultiplier()" id="multiplierButton">
+    Upgrade Multiplier
+</button>
+
+<br><br>
+
+<button onclick="addAutoClicker()" id="autoClickerButton">
+    Auto Clicker
+</button>
+
+<br><br>
+
+<button onclick="critUpgrade()" id="critButton">
+    Upgrade Crit Chance
+</button>
+
+<br><br>
+
+<h2 id="levelLabel">Game Level: 1</h2>
+
+<button onclick="levelUp()" id="levelButton">
+    Upgrade Game Level
+</button>
+
+<script>
+
+// ----------------------------
+// DEFAULT SAVE
+// ----------------------------
+
+const defaultData = {
+    clickNumber: 0,
+    multiplier: 1,
+    multiplierCostLevel: 25,
+    autoClickerLevel: 0,
+    critMultiplier: 2.0,
+    critUpgradeCost: 500,
+    gameLevel: 1
+};
+
+// ----------------------------
+// LOAD SAVE
+// ----------------------------
+
+let data = JSON.parse(localStorage.getItem("idleClickerSave"));
+
+if (!data) {
+    data = defaultData;
+}
+
+// ----------------------------
+// VARIABLES
+// ----------------------------
+
+let clickNumber = data.clickNumber;
+let multiplier = data.multiplier;
+let multiplierCostLevel = data.multiplierCostLevel;
+let autoClickerLevel = data.autoClickerLevel;
+let critMultiplier = data.critMultiplier;
+let critUpgradeCost = data.critUpgradeCost;
+let gameLevel = data.gameLevel;
+
+// ----------------------------
+// UI UPDATE
+// ----------------------------
+
+function updateUI() {
+
+    document.getElementById("clickLabel").innerText =
+        `Clicks: ${Math.floor(clickNumber)} | Multiplier: ${multiplier}`;
+
+    document.getElementById("multiplierButton").innerText =
+        `Upgrade Multiplier (${multiplierCostLevel})`;
+
+    document.getElementById("autoClickerButton").innerText =
+        `Auto Clicker (10000) | Level: ${autoClickerLevel}`;
+
+    document.getElementById("critButton").innerText =
+        `Upgrade Crit (${critUpgradeCost}) | Current: ${critMultiplier}`;
+
+    document.getElementById("levelLabel").innerText =
+        `Game Level: ${gameLevel}`;
+
+    document.getElementById("levelButton").innerText =
+        `Upgrade Game Level (${gameLevel * 50000})`;
+}
+
+// ----------------------------
+// GAME FUNCTIONS
+// ----------------------------
+
+function clicked() {
+
+    if (Math.random() < (critMultiplier * 0.1)) {
+        clickNumber += multiplier * critMultiplier;
+    } else {
+        clickNumber += multiplier;
+    }
+
+    updateUI();
+}
+
+function upgradeMultiplier() {
+
+    if (clickNumber >= multiplierCostLevel) {
+
+        clickNumber -= multiplierCostLevel;
+
+        multiplier += 2;
+
+        multiplierCostLevel = (multiplier * multiplier) * 15;
+
+        updateUI();
+    }
+}
+
+function addAutoClicker() {
+
+    if (clickNumber >= 10000) {
+
+        clickNumber -= 10000;
+
+        autoClickerLevel += 1;
+
+        updateUI();
+    }
+}
+
+function critUpgrade() {
+
+    if (clickNumber >= critUpgradeCost) {
+
+        clickNumber -= critUpgradeCost;
+
+        critMultiplier += 1;
+
+        critUpgradeCost = Math.floor(critUpgradeCost * 3);
+
+        updateUI();
+    }
+}
+
+function levelUp() {
+
+    const cost = gameLevel * 50000;
+
+    if (clickNumber >= cost) {
+
+        clickNumber -= cost;
+
+        gameLevel += 1;
+
+        updateUI();
+    }
+}
+
+// ----------------------------
+// GAME LOOP
+// ----------------------------
+
+function gameLoop() {
+
+    if (autoClickerLevel > 0) {
+        clickNumber += autoClickerLevel * multiplier;
+    }
+
+    saveGame();
+
+    updateUI();
+}
+
+setInterval(gameLoop, 1000);
+
+// ----------------------------
+// SAVE SYSTEM
+// ----------------------------
+
+function saveGame() {
+
+    const saveData = {
+
+        clickNumber,
+        multiplier,
+        multiplierCostLevel,
+        autoClickerLevel,
+        critMultiplier,
+        critUpgradeCost,
+        gameLevel
+
+    };
+
+    localStorage.setItem(
+        "idleClickerSave",
+        JSON.stringify(saveData)
+    );
+}
+
+// ----------------------------
+// START
+// ----------------------------
+
+updateUI();
+
+</script>
+
+</body>
+</html>
