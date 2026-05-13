@@ -14,6 +14,10 @@ function DansSiteRedirect() {
     window.open("Dan's_project_or_sum")
 }
 
+function ClickerDownloadRedirect() {
+    window.open("ClickerDownload.html")
+}
+
 function searchRedirect() {
     window.open("Search.html")
 }
